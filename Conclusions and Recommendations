@@ -1,0 +1,30 @@
+# Conclusions and Recommendation for the Solution
+
+**1. Comparison of various techniques and their relative performance based on chosen Metric (Measure of success):** 
+ - In order to come up with a good model, wide range of models were built and their performances were evaluated.
+ - The target variable over here was the log of Price. The log of target variable was taken as its distribution was highly skewed.
+ - After the linear regression model was built, variance inflation factor was used to investigate and remove multicollinearity, and then model summary report was analyzed to drop insignificant features.
+ - In addition to linear regression, Lasso and Ridge Regression tests were performed as well.
+ - Following that, decision tree and random forest approaches were assessed along with hyperparameter tuning for each of the approaches.
+ - In order to evaluate each model's performance, various metrics such as root mean squared difference (RMSE), mean absolute error (MAE), R-squared, and adjusted R-squared on the 'TRAIN' and 'TEST DATA' were measured.
+ - It was observed that the **Random Forest Tuned Regressor** approach yielded the minimum RMSE and MAE along with highest R-squared and adjusted R-squared.
+ - Overfitting was observed for the **Decision Tree Regressor** approach as the RMSE and MAE were extremely low and the R-squared and adjusted R-squared were high for the **train** data. However, the RMSE and MAE were relatively higher and R-squares were relatively lower for the **test** data.
+ - There is some scope to slightly improve the results further by investigating more hyperparameters for tuning. However, that approach could be computationally expensive.
+
+**2. Refined insights:** 
+- After the interpretation of various models, it is clear that the features --> 'Power', 'Year', 'New Price', 'log_kilometers_driven', 'Engine', and 'Mileage' are the factors that affect the price of the car the most.
+- Since these features have the strongest impact on used price, it will be essential to ensure data collection and cleaning processes prioritize their accuracy and completeness.
+- The used cars can be grouped into segments based on these key features which could allow for more targeted pricing strategies within each segment.
+- For marketing efforts, focus on emphasizing these features could yield (e.g., horsepower for performance-oriented cars, fuel efficiency, etc.) better sales.
+- For business purposes, prioritization on acquisition of high-demand cars should be done.
+- The proposed model could potentially enable business stakeholders to set optimal prices for each vehicle, leading to increased revenue through data-driven pricing strategies.
+- This model will equip business stakeholders with the ability to implement effective differential pricing, ultimately increasing profitability.
+
+**3. Proposal for the final solution design:** 
+-  In order to propose a final solution, extensive EDA, univariate and bivariate analysis, on all the variables in the dataset was performed.
+-  Missing values were then treated using the relationship between variables.
+-  A linear regression model was built using all the features.
+-  Multicollinearity from the data was removed and the model summary report was analyzed to drop insignificant features to come up with a linear model.
+-  Lasso and Ridge regression approaches were investigated with the reduced features.
+-  Finally, decision tree and random forest approaches were assessed along with hyperparameter tuning for each of the approaches.
+-  All these models were evaluated using different evaluation metrics, and random forest tuned regressor model was proposed as it reported highest R-squared and adjusted R-squared along with minimum RMSE and MAE on the test datasets.
